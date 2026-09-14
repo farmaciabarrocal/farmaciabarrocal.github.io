@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- =========================================================================
+     FARMÁCIA DO BARROCAL — site informativo, bilingue PT/EN
+
+     Dados confirmados em setembro de 2026.
+
+     ONDE MEXER NO FUTURO:
+       HORÁRIO   - bloco HORARIO, no script ao fim do ficheiro
+       FÉRIAS / FECHOS PONTUAIS - bloco EXCECOES, logo a seguir
+       TELEFONE  - procure por "924130799" e por "924 130 799"
+       MAPA      - se a duração mudar, procure por "48"
+     ========================================================================= -->
+
+<title>Farmácia do Barrocal — Paderne, Albufeira | PIM e MAPA de 48 horas</title>
+<meta name="description" content="Farmácia do Barrocal, em Paderne, Albufeira. Preparação Individualizada da Medicação (PIM), MAPA — monitorização ambulatória da pressão arterial de 48 horas, administração de injetáveis e revisão da terapêutica.">
+<meta property="og:title" content="Farmácia do Barrocal — Paderne, Albufeira">
+<meta property="og:description" content="PIM, MAPA de 48 horas, injetáveis e revisão da terapêutica em Paderne.">
+<meta property="og:locale" content="pt_PT">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://farmaciadobarrocal.pt/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Petrona:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Dados estruturados: é isto que diz ao Google "sou uma farmácia, aqui, com este horário" -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Pharmacy",
+  "name":"Farmácia do Barrocal",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Rua Miguel Bombarda, 55",
+    "addressLocality":"Paderne, Albufeira",
+    "postalCode":"8200-495",
+    "addressRegion":"Faro",
+    "addressCountry":"PT"
+  },
+  "geo":{"@type":"GeoCoordinates","latitude":37.1766256,"longitude":-8.2016573},
+  "telephone":"+351924130799",
+  "url":"https://farmaciadobarrocal.pt/",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"20:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"13:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"09:00","closes":"12:00"}
+  ],
+  "availableService":[
+    {"@type":"MedicalTherapy","name":"Preparação Individualizada da Medicação (PIM)"},
+    {"@type":"MedicalTest","name":"MAPA — Monitorização Ambulatória da Pressão Arterial de 48 horas"}
+  ]
+}
+</script>
+
+<style>
+:root{
+  --breu:#0E2E28;
+  --verde-luz:#3ED17F;
+  --verde-forte:#17624B;
+  --cal:#F1F3EF;
+  --areia:#E8DFCC;
+  --tinta:#16211D;
+  --tinta-suave:#4A5A54;
+  --raio:14px;
+  --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cal);color:var(--tinta);font-family:'Karla',system-ui,sans-serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Petrona',Georgia,serif;font-weight:600;line-height:1.15;letter-spacing:-.01em}
+a{color:inherit}
+.env{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+.eyebrow{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--verde-forte);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.eyebrow::before{content:"";width:13px;height:13px;flex:none;background:var(--verde-forte);
+  clip-path:polygon(38% 0,62% 0,62% 38%,100% 38%,100% 62%,62% 62%,62% 100%,38% 100%,38% 62%,0 62%,0 38%,38% 38%)}
+
+/* barra de topo */
+.topo{position:sticky;top:0;z-index:50;background:rgba(241,243,239,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(22,33,29,.1)}
+.topo-in{max-width:var(--max);margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:18px}
+.marca{font-family:'Petrona',serif;font-size:1.15rem;font-weight:600;text-decoration:none;line-height:1.2}
+.marca span{display:block;font-family:'Karla',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-suave)}
+.nav-links{margin-left:auto;display:flex;gap:24px}
+.nav-links a{text-decoration:none;font-size:.95rem;font-weight:500;padding:4px 0;border-bottom:2px solid transparent}
+.nav-links a:hover,.nav-links a:focus-visible{border-bottom-color:var(--verde-forte)}
+.idioma{margin-left:auto;display:flex;border:1.5px solid rgba(22,33,29,.22);border-radius:99px;overflow:hidden;flex:none}
+.nav-links + .idioma{margin-left:0}
+.idioma button{background:none;border:0;font-family:inherit;font-size:.8rem;font-weight:700;letter-spacing:.06em;padding:8px 13px;cursor:pointer;color:var(--tinta-suave)}
+.idioma button[aria-pressed="true"]{background:var(--breu);color:var(--cal)}
+.btn-tel{background:var(--verde-forte);color:#fff;text-decoration:none;padding:11px 20px;border-radius:99px;font-weight:700;font-size:.95rem;white-space:nowrap;flex:none}
+.btn-tel:hover{background:var(--breu)}
+@media(max-width:900px){.nav-links{display:none}.idioma{margin-left:auto}.marca span{display:none}}
+
+/* hero */
+.hero{background:var(--breu);color:var(--cal);padding:76px 0 84px}
+.hero-in{max-width:var(--max);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.25fr .85fr;gap:60px;align-items:center}
+.hero .eyebrow{color:var(--verde-luz)}
+.hero .eyebrow::before{background:var(--verde-luz)}
+.hero h1{font-size:clamp(2.3rem,5.2vw,4rem);margin-bottom:22px}
+.hero p.intro{font-size:1.12rem;color:#C9D6D0;max-width:46ch;margin-bottom:32px}
+.hero-acoes{display:flex;flex-wrap:wrap;gap:14px}
+.acao{text-decoration:none;font-weight:700;font-size:1rem;padding:15px 26px;border-radius:99px;display:inline-block}
+.acao-cheia{background:var(--verde-luz);color:var(--breu)}
+.acao-cheia:hover{background:#fff}
+.acao-vazia{border:1.5px solid rgba(201,214,208,.45);color:var(--cal)}
+.acao-vazia:hover{border-color:var(--verde-luz);color:var(--verde-luz)}
+
+/* a cruz que acende */
+.painel-cruz{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);border-radius:20px;padding:34px 28px;text-align:center}
+.cruz{width:92px;height:92px;margin:0 auto 22px;position:relative}
+.cruz svg{width:100%;height:100%;display:block;position:relative;z-index:2}
+.cruz-halo{position:absolute;inset:-32%;border-radius:50%;z-index:1;background:radial-gradient(circle,rgba(62,209,127,.5),transparent 68%);opacity:0;transition:opacity .6s}
+.cruz-barra{fill:#33443E;transition:fill .5s}
+.aberta .cruz-barra{fill:var(--verde-luz)}
+.aberta .cruz-halo{opacity:1;animation:respirar 3.6s ease-in-out infinite}
+@keyframes respirar{0%,100%{opacity:.55;transform:scale(.94)}50%{opacity:1;transform:scale(1.06)}}
+.estado{font-family:'Petrona',serif;font-size:1.55rem;font-weight:600;margin-bottom:6px}
+.aberta .estado{color:var(--verde-luz)}
+.estado-detalhe{font-size:.95rem;color:#B4C4BD;min-height:1.6em}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.aberta .cruz-halo{animation:none;opacity:.8}}
+@media(max-width:900px){.hero{padding:48px 0 56px}.hero-in{grid-template-columns:1fr;gap:40px}.painel-cruz{order:-1;padding:28px 20px}.cruz{width:74px;height:74px;margin-bottom:16px}}
+
+/* secções */
+.sec{padding:88px 0}
+.sec-cal{background:var(--cal)}
+.sec-areia{background:var(--areia)}
+.sec h2{font-size:clamp(1.75rem,3.4vw,2.5rem);margin-bottom:20px}
+@media(max-width:900px){.sec{padding:60px 0}}
+
+.sobre-grelha{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.sobre-texto p{margin-bottom:18px;max-width:56ch}
+.sobre-texto p:last-child{margin-bottom:0}
+.factos{border-top:1.5px solid rgba(22,33,29,.16)}
+.facto{padding:20px 0;border-bottom:1px solid rgba(22,33,29,.13)}
+.facto dt{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--tinta-suave);margin-bottom:5px}
+.facto dd{font-family:'Petrona',serif;font-size:1.25rem;font-weight:500}
+@media(max-width:900px){.sobre-grelha{grid-template-columns:1fr;gap:40px}}
+
+/* destaques PIM e MAPA */
+.destaque{background:var(--breu);color:var(--cal);border-radius:var(--raio);padding:44px;margin-bottom:24px;display:grid;grid-template-columns:.95fr 1.05fr;gap:52px}
+.destaque .eyebrow{color:var(--verde-luz)}
+.destaque .eyebrow::before{background:var(--verde-luz)}
+.destaque h3{font-size:1.75rem;margin-bottom:16px}
+.destaque p{color:#C4D2CC;max-width:42ch}
+.passos{list-style:none;counter-reset:p}
+.passo{counter-increment:p;display:flex;gap:18px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.13)}
+.passo:last-child{border-bottom:0;padding-bottom:0}
+.passo::before{content:counter(p,decimal-leading-zero);font-family:'Petrona',serif;font-size:1rem;color:var(--verde-luz);flex:none;width:26px;padding-top:2px}
+.passo strong{display:block;font-weight:700;font-size:1rem;margin-bottom:2px}
+.passo span{font-size:.94rem;color:#AFC0B9}
+.destaque:last-of-type{margin-bottom:44px}
+@media(max-width:900px){.destaque{grid-template-columns:1fr;gap:32px;padding:30px 24px}}
+
+/* grelha de serviços */
+.servicos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.servico{background:#fff;border-radius:var(--raio);padding:28px 26px;border:1px solid rgba(22,33,29,.09)}
+.servico h3{font-size:1.2rem;margin-bottom:9px}
+.servico p{font-size:.96rem;color:var(--tinta-suave)}
+@media(max-width:900px){.servicos{grid-template-columns:1fr}}
+
+/* receita sem papel */
+.receita{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.opcoes-receita{display:grid;gap:14px}
+.opcao{background:#fff;border:1px solid rgba(22,33,29,.1);border-radius:var(--raio);padding:22px 24px}
+.opcao h3{font-size:1.1rem;margin-bottom:6px}
+.opcao p{font-size:.96rem;color:var(--tinta-suave)}
+@media(max-width:900px){.receita{grid-template-columns:1fr;gap:32px}}
+
+/* horário e contactos */
+.contactos-grelha{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.tabela-horario{width:100%;border-collapse:collapse;margin-top:6px}
+.tabela-horario th{text-align:left;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--tinta-suave);padding-bottom:10px;border-bottom:1.5px solid rgba(22,33,29,.16)}
+.tabela-horario td{padding:14px 0;border-bottom:1px solid rgba(22,33,29,.11);font-size:1rem}
+.tabela-horario td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.tabela-horario tr.hoje td{font-weight:700;color:var(--verde-forte)}
+.nota-servico{margin-top:18px;font-size:.92rem;color:var(--tinta-suave);max-width:48ch}
+.cartao-contacto{background:#fff;border-radius:var(--raio);padding:32px;border:1px solid rgba(22,33,29,.09)}
+.linha-contacto{padding:16px 0;border-bottom:1px solid rgba(22,33,29,.1)}
+.linha-contacto:last-of-type{border-bottom:0}
+.linha-contacto dt{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--tinta-suave);margin-bottom:4px}
+.linha-contacto dd{font-size:1.1rem}
+.linha-contacto a{text-decoration:none;border-bottom:1.5px solid var(--verde-luz)}
+.linha-contacto a:hover{color:var(--verde-forte)}
+.btn-mapa{display:block;text-align:center;margin-top:24px;background:var(--verde-forte);color:#fff;text-decoration:none;padding:15px;border-radius:99px;font-weight:700}
+.btn-mapa:hover{background:var(--breu)}
+@media(max-width:900px){.contactos-grelha{grid-template-columns:1fr;gap:40px}}
+
+/* rodapé */
+.rodape{background:var(--breu);color:#A8BAB3;padding:52px 0 40px;font-size:.9rem}
+.rodape-in{max-width:var(--max);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:36px}
+.rodape h4{font-family:'Karla',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--cal);margin-bottom:12px}
+.rodape p{margin-bottom:8px}
+.rodape a{color:#A8BAB3}
+.rodape a:hover{color:var(--verde-luz)}
+.rodape-fim{max-width:var(--max);margin:36px auto 0;padding:22px 24px 0;border-top:1px solid rgba(255,255,255,.13);font-size:.84rem}
+@media(max-width:900px){.rodape-in{grid-template-columns:1fr;gap:30px}}
+
+:focus-visible{outline:3px solid var(--verde-luz);outline-offset:3px;border-radius:3px}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-in">
+    <a class="marca" href="#inicio">Farmácia do Barrocal<span>Paderne · Albufeira</span></a>
+    <nav class="nav-links">
+      <a href="#contactos" data-en="Hours &amp; contact">Horário e contactos</a>
+      <a href="#sobre" data-en="About us">Quem somos</a>
+      <a href="#servicos" data-en="Services">Serviços</a>
+      <a href="#receita" data-en="Prescriptions">Receitas</a>
+    </nav>
+    <div class="idioma">
+      <button id="btn-pt" aria-pressed="true">PT</button>
+      <button id="btn-en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn-tel" href="tel:+351924130799" data-en="Call us">Ligar</a>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-in">
+    <div>
+      <p class="eyebrow" data-en="Pharmacy in Paderne, Albufeira">Farmácia em Paderne, Albufeira</p>
+      <h1 data-en="Your medicines, explained properly.">A sua medicação, explicada com calma.</h1>
+      <p class="intro" data-en="The pharmacy in the centre of Paderne. Beyond dispensing, we provide follow-up services: individualised medication preparation, 48-hour ambulatory blood pressure monitoring, administration of injectables and medication review.">A farmácia no centro de Paderne. Para além da dispensa de medicamentos, prestamos serviços de acompanhamento: preparação individualizada da medicação, monitorização ambulatória da pressão arterial de 48 horas, administração de injetáveis e revisão da terapêutica.</p>
+      <div class="hero-acoes">
+        <a class="acao acao-cheia" href="tel:+351924130799" data-en="Call the pharmacy">Ligar para a farmácia</a>
+        <a class="acao acao-vazia" href="#contactos" data-en="Hours and directions">Horário e como chegar</a>
+      </div>
+    </div>
+
+    <!-- A cruz acende quando a farmácia está aberta, tal como a da rua -->
+    <div class="painel-cruz" id="painel">
+      <div class="cruz">
+        <div class="cruz-halo"></div>
+        <svg viewBox="0 0 100 100" role="img" aria-label="Cruz de farmácia">
+          <rect class="cruz-barra" x="38" y="6" width="24" height="88" rx="7"></rect>
+          <rect class="cruz-barra" x="6" y="38" width="88" height="24" rx="7"></rect>
+        </svg>
+      </div>
+      <p class="estado" id="estado">…</p>
+      <p class="estado-detalhe" id="estado-detalhe"></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-cal" id="contactos">
+  <div class="env">
+    <p class="eyebrow" data-en="Hours and contact">Horário e contactos</p>
+    <div class="contactos-grelha">
+      <div>
+        <h2 data-en="When we are open">Quando estamos abertos</h2>
+        <table class="tabela-horario">
+          <thead><tr><th data-en="Day">Dia</th><th style="text-align:right" data-en="Hours">Horário</th></tr></thead>
+          <tbody id="corpo-horario"></tbody>
+        </table>
+        <p class="nota-servico"><strong id="nota-feriados"></strong><br><span data-en="Outside these hours, check which pharmacy in Albufeira is on duty at infarmed.pt, or call the national health line SNS 24 on 808 24 24 24.">Fora deste horário, consulte a farmácia de serviço de Albufeira em <a href="https://www.infarmed.pt" target="_blank" rel="noopener">infarmed.pt</a> ou ligue para o SNS 24, através do 808 24 24 24.</span></p>
+      </div>
+
+      <div class="cartao-contacto">
+        <h2 style="font-size:1.5rem;margin-bottom:8px" data-en="Where to find us">Onde nos encontra</h2>
+        <dl>
+          <div class="linha-contacto">
+            <dt data-en="Address">Morada</dt>
+            <dd>Rua Miguel Bombarda, 55<br>8200-495 Paderne, Albufeira</dd>
+          </div>
+          <div class="linha-contacto">
+            <dt data-en="Phone">Telefone</dt>
+            <dd><a href="tel:+351924130799">924 130 799</a></dd>
+          </div>
+        </dl>
+        <a class="btn-mapa" href="https://www.google.com/maps/search/?api=1&query=Farm%C3%A1cia%20do%20Barrocal%20Paderne&query_place_id=ChIJ10bmUKLIGg0RoNp4gR9zA2Y" target="_blank" rel="noopener" data-en="Get directions">Como chegar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-areia" id="sobre">
+  <div class="env">
+    <p class="eyebrow" data-en="About us">Quem somos</p>
+    <div class="sobre-grelha">
+      <div class="sobre-texto">
+        <h2 data-en="Accessible care, with clinical rigour.">Proximidade, com rigor clínico.</h2>
+        <p data-en="Our mission is to promote the health and wellbeing of the Paderne community, so that everyone can live longer and better. We are committed to personalised care, grounded in excellence, rigour and closeness, with quality products and services that meet the needs of each patient.">A nossa missão é promover a saúde e o bem-estar da comunidade de Paderne, para que cada pessoa possa viver mais e melhor. Assumimos o compromisso de um atendimento personalizado, assente na excelência, no rigor e na proximidade, com produtos e serviços de qualidade que respondem às necessidades de cada utente.</p>
+        <p data-en="A significant share of the people we serve are on multiple medicines, or depend on someone else to manage them. The two differentiated services set out below were developed with those situations in mind.">Uma parte significativa dos utentes que acompanhamos é polimedicada, ou depende de terceiros para gerir a medicação. Foi a pensar nessas situações que desenvolvemos os dois serviços diferenciados apresentados a seguir.</p>
+      </div>
+      <dl class="factos">
+        <div class="facto"><dt data-en="Where we are">Onde estamos</dt><dd data-en="Rua Miguel Bombarda, 55<br>Paderne, Albufeira">Rua Miguel Bombarda, 55<br>Paderne, Albufeira</dd></div>
+        <div class="facto"><dt data-en="We speak">Falamos consigo em</dt><dd data-en="Portuguese, English">Português, English</dd></div>
+        <div class="facto"><dt data-en="Featured services">Serviços em destaque</dt><dd data-en="PIM and 48-hour ABPM">PIM e MAPA de 48 horas</dd></div>
+        <div class="facto"><dt data-en="Pharmaceutical director">Direção técnica</dt><dd>João Eliseu</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-cal" id="servicos">
+  <div class="env">
+    <p class="eyebrow" data-en="Services">Serviços</p>
+    <h2 style="margin-bottom:40px" data-en="What we do here.">O que fazemos aqui.</h2>
+
+    <div class="destaque">
+      <div>
+        <p class="eyebrow" data-en="Featured service">Serviço em destaque</p>
+        <h3 data-en="PIM — Individualised Medication Preparation">PIM — Preparação Individualizada da Medicação</h3>
+        <p data-en="If you take a lot of tablets each day, or you care for someone who does, this service takes the weight off. We organise one or two weeks of medication into a sealed box with a compartment for each time of day. You open it, take what is inside, and that is it — no counting, no confusion, no missed doses.">Se toma muitos comprimidos por dia, ou se cuida de alguém que toma, este serviço tira-lhe o peso de cima. Organizamos a medicação de uma ou duas semanas numa caixa selada, com um compartimento para cada hora do dia. Abre, toma o que lá está, e pronto — sem contas, sem confusões, sem esquecimentos.</p>
+      </div>
+      <ol class="passos">
+        <li class="passo"><div><strong data-en="Bring us the prescriptions">Traga-nos as receitas</strong><span data-en="Bring your current prescriptions and a list of everything you take, including anything bought without a prescription.">Basta trazer as receitas atuais e a lista do que toma, incluindo o que comprou sem receita.</span></div></li>
+        <li class="passo"><div><strong data-en="The pharmacist reviews everything">O farmacêutico revê tudo</strong><span data-en="We check doses, timings and possible interactions. If anything is unclear, we speak to your doctor.">Confirmamos doses, horários e possíveis interações. Se houver alguma dúvida, falamos com o seu médico.</span></div></li>
+        <li class="passo"><div><strong data-en="We prepare and seal it">Preparamos e selamos</strong><span data-en="Each compartment is filled and checked twice before the box is sealed and labelled.">Cada compartimento é preenchido e conferido duas vezes antes de ser fechado e identificado.</span></div></li>
+        <li class="passo"><div><strong data-en="Collect it ready to take">Levanta pronta a tomar</strong><span data-en="We agree how often you collect it. If the medication changes in the meantime, we redo the box.">Combina connosco a periodicidade. Se a medicação mudar entretanto, refazemos a caixa.</span></div></li>
+      </ol>
+    </div>
+
+    <div class="destaque">
+      <div>
+        <p class="eyebrow" data-en="Featured service">Serviço em destaque</p>
+        <h3 data-en="ABPM — 48-hour ambulatory blood pressure monitoring">MAPA — Monitorização ambulatória da pressão arterial de 48 horas</h3>
+        <p data-en="An isolated reading at the counter has limited diagnostic value. Blood pressure varies throughout the day, and in some patients it only rises at night or in the clinical setting. ABPM records it automatically over 48 hours, across two full days and nights of normal routine, producing a considerably more reliable record for your doctor than a single measurement.">Uma medição isolada ao balcão tem valor diagnóstico limitado. A pressão arterial varia ao longo do dia, e há doentes em que só se eleva durante a noite ou em ambiente clínico. O MAPA regista-a automaticamente durante 48 horas, ao longo de dois dias e duas noites de rotina normal, e produz um registo bastante mais fiável para o seu médico do que uma medição pontual.</p>
+      </div>
+      <ol class="passos">
+        <li class="passo"><div><strong data-en="Book a time with us">Combine connosco a data</strong><span data-en="Call or come in. You will need to return two days later, at roughly the same time of day.">Ligue ou passe por cá. Terá de voltar dois dias depois, aproximadamente à mesma hora.</span></div></li>
+        <li class="passo"><div><strong data-en="We fit the device">Colocamos o aparelho</strong><span data-en="A cuff on the arm and a small recorder at the waist. We explain how to wear it and what to avoid.">Uma braçadeira no braço e um pequeno gravador à cintura. Explicamos como o usar e o que evitar.</span></div></li>
+        <li class="passo"><div><strong data-en="Carry on as normal">Faça a sua vida normal</strong><span data-en="The device measures on its own, day and night, for two full days. Keep the arm still while the cuff inflates, and sleep with it on.">O aparelho mede sozinho, de dia e de noite, durante dois dias completos. Mantenha o braço imóvel enquanto a braçadeira insufla, e durma com ele.</span></div></li>
+        <li class="passo"><div><strong data-en="Collect the report">Levante o relatório</strong><span data-en="We remove the device and give you the full report to take to your doctor.">Retiramos o aparelho e entregamos-lhe o relatório completo para levar ao médico.</span></div></li>
+      </ol>
+    </div>
+
+    <div class="servicos">
+      <div class="servico">
+        <h3 data-en="Blood pressure">Tensão arterial</h3>
+        <p data-en="A quick measurement whenever you need one, recorded so you can follow how it changes.">Medição rápida sempre que precisar, com registo para poder acompanhar a evolução.</p>
+      </div>
+      <div class="servico">
+        <h3 data-en="Blood glucose and cholesterol">Glicemia e colesterol</h3>
+        <p data-en="Finger-prick tests for blood glucose, total cholesterol and triglycerides, with the result on the spot.">Testes de glicemia, colesterol total e triglicéridos, com resultado na hora.</p>
+      </div>
+      <div class="servico">
+        <h3 data-en="Injections and vaccines">Injetáveis e vacinas</h3>
+        <p data-en="We administer prescribed injectable medication and vaccines outside the national programme. Bring the prescription.">Administramos medicação injetável prescrita e vacinas fora do plano nacional. Traga a receita.</p>
+      </div>
+      <div class="servico">
+        <h3 data-en="Questions about your medication">Dúvidas sobre a medicação</h3>
+        <p data-en="If you are unsure about what you take, the timings, or whether two medicines overlap, ask us and we will help you work it out.">Se tem dúvidas sobre o que toma, sobre os horários ou se dois medicamentos se repetem, pergunte-nos que ajudamos a esclarecer.</p>
+      </div>
+      <div class="servico">
+        <h3 data-en="Ordering what we do not have">Encomenda de medicamentos</h3>
+        <p data-en="If what you need is not in stock, we order it and let you know as soon as it arrives.">Se não tivermos em stock o que precisa, encomendamos e avisamos assim que chegar.</p>
+      </div>
+      <div class="servico">
+        <h3 data-en="Skin and sun care">Dermofarmácia</h3>
+        <p data-en="Advice on sensitive skin, sun protection and daily care, with pharmacy-only brands.">Aconselhamento para pele sensível, proteção solar e cuidados diários, com marcas de farmácia.</p>
+      </div>
+      <div class="servico">
+        <h3 data-en="VALORMED">VALORMED</h3>
+        <p data-en="Bring us expired medicines or anything you no longer use. We send it for safe destruction, free of charge.">Traga medicamentos fora de prazo ou que já não usa. Encaminhamos para destruição segura, sem custo.</p>
+      </div>
+      <div class="servico">
+        <h3 data-en="Visiting from abroad?">Está de visita?</h3>
+        <p data-en="We are used to helping visitors and residents from abroad. Bring your prescription or the box of what you take and we will find the equivalent.">Estamos habituados a ajudar visitantes e residentes estrangeiros. Traga a receita ou a caixa do que toma e encontramos o equivalente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-areia" id="receita">
+  <div class="env">
+    <p class="eyebrow" data-en="Prescriptions">Receitas</p>
+    <div class="receita">
+      <div>
+        <h2 data-en="Paperless prescriptions, without the worry.">Receita sem papel, sem complicações.</h2>
+        <p style="max-width:44ch" data-en="Most prescriptions no longer come on paper. If you are not sure what to bring, any one of these is enough — and if you arrive with none of them, come in anyway and we will sort it out.">A maioria das receitas já não vem em papel. Se não tem a certeza do que trazer, qualquer uma destas coisas chega — e se chegar aqui sem nenhuma, entre na mesma que nós resolvemos.</p>
+      </div>
+      <div class="opcoes-receita">
+        <div class="opcao">
+          <h3 data-en="The SMS on your phone">A mensagem no telemóvel</h3>
+          <p data-en="Show us the text message from the health service. It contains the codes we need.">Mostre-nos a mensagem que recebeu do serviço de saúde. Tem lá os códigos de que precisamos.</p>
+        </div>
+        <div class="opcao">
+          <h3 data-en="The printed guide">O guia impresso</h3>
+          <p data-en="The sheet the surgery printed for you, with the numbers and the list of medicines.">A folha que lhe imprimiram no centro de saúde, com os números e a lista dos medicamentos.</p>
+        </div>
+        <div class="opcao">
+          <h3 data-en="Your citizen card and PIN">Cartão de cidadão e PIN</h3>
+          <p data-en="With the card and your access code we can look up what has been prescribed to you.">Com o cartão e o seu código de acesso conseguimos consultar o que lhe foi prescrito.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="rodape">
+  <div class="rodape-in">
+    <div>
+      <h4>Farmácia do Barrocal</h4>
+      <p>Rua Miguel Bombarda, 55<br>8200-495 Paderne, Albufeira</p>
+      <p><a href="tel:+351924130799">924 130 799</a></p>
+    </div>
+    <div>
+      <h4 data-en="Legal information">Informação legal</h4>
+      <p><span data-en="Pharmaceutical director:">Diretor técnico:</span> João Eliseu</p>
+    </div>
+    <div>
+      <h4 data-en="Useful links">Links úteis</h4>
+      <p><a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener" data-en="Complaints book">Livro de Reclamações</a></p>
+      <p><a href="https://www.infarmed.pt" target="_blank" rel="noopener">INFARMED</a></p>
+      <p><a href="https://www.valormed.pt" target="_blank" rel="noopener">VALORMED</a></p>
+    </div>
+  </div>
+  <div class="rodape-fim env">
+    <p style="margin-bottom:14px"><a href="https://www.livroreclamacoes.pt/inicio" target="_blank" rel="noopener" style="display:inline-block;border:1.5px solid rgba(255,255,255,.35);border-radius:99px;padding:9px 20px;text-decoration:none;color:var(--cal);font-weight:700;font-size:.86rem" data-en="Complaints book">Livro de Reclamações</a></p>
+    <p data-en="© <span id=&quot;ano-en&quot;></span> Farmácia do Barrocal. This site is for information only and does not replace advice from a healthcare professional.">© <span id="ano"></span> Farmácia do Barrocal. Este site é informativo e não substitui o aconselhamento de um profissional de saúde.</p>
+  </div>
+</footer>
+
+<script>
+/* =========================================================================
+   O HORÁRIO — confirmado em setembro de 2026.
+   Seg-Sex 9h-20h · Sáb 9h-13h · Dom 9h-12h · Feriados encerrado.
+
+   Cada dia tem uma lista de períodos ["abertura","fecho"]:
+     Seguido:            [["09:00","20:00"]]
+     Com pausa almoço:   [["09:00","13:00"],["15:00","20:00"]]
+     Fechado:            []
+   ========================================================================= */
+var HORARIO = [
+  { pt:"Domingo",       en:"Sunday",    periodos: [["09:00","12:00"]] },
+  { pt:"Segunda-feira", en:"Monday",    periodos: [["09:00","20:00"]] },
+  { pt:"Terça-feira",   en:"Tuesday",   periodos: [["09:00","20:00"]] },
+  { pt:"Quarta-feira",  en:"Wednesday", periodos: [["09:00","20:00"]] },
+  { pt:"Quinta-feira",  en:"Thursday",  periodos: [["09:00","20:00"]] },
+  { pt:"Sexta-feira",   en:"Friday",    periodos: [["09:00","20:00"]] },
+  { pt:"Sábado",        en:"Saturday",  periodos: [["09:00","13:00"]] }
+];
+
+/* Fechar automaticamente nos feriados nacionais? true = sim, false = não. */
+var FECHA_NOS_FERIADOS = true;
+
+/* =========================================================================
+   EXCEÇÕES — férias, meios-dias, feriado municipal, fecho imprevisto.
+   Data no formato "AAAA-MM-DD". Mandam sempre sobre tudo o resto.
+   Basta apagar a barra dupla para a linha ficar ativa.
+   ========================================================================= */
+var EXCECOES = {
+  // "2026-12-24": [["09:00","13:00"]],   // véspera de Natal, só de manhã
+  // "2026-12-31": [["09:00","13:00"]]    // véspera de Ano Novo, só de manhã
+};
+
+/* ============ a partir daqui não precisa de mexer em nada ============ */
+
+var lang = "pt";
+
+var T = {
+  pt:{ fechado:"Encerrado", hoje:" · hoje", aberto:"Estamos abertos", fechadoTit:"Estamos fechados",
+       feriado:"Hoje é feriado. ",
+       fechamos:function(h){return "Fechamos às "+h+".";},
+       reabre:function(h){return "Reabrimos hoje às "+h+".";},
+       amanha:function(h){return "Abrimos amanhã às "+h+".";},
+       outro:function(d,h){return "Abrimos "+d.toLowerCase()+" às "+h+".";},
+       notaFeriados:"Encerramos nos feriados nacionais." },
+  en:{ fechado:"Closed", hoje:" · today", aberto:"We are open", fechadoTit:"We are closed",
+       feriado:"Today is a public holiday. ",
+       fechamos:function(h){return "We close at "+h+".";},
+       reabre:function(h){return "We reopen today at "+h+".";},
+       amanha:function(h){return "We open tomorrow at "+h+".";},
+       outro:function(d,h){return "We open on "+d+" at "+h+".";},
+       notaFeriados:"We are closed on Portuguese public holidays." }
+};
+
+function paraMinutos(h){ var p=h.split(":"); return (+p[0])*60+(+p[1]); }
+function formata(h){
+  if (lang === "en") return h.replace(/^0/,"");
+  return h.replace(":","h").replace(/h00$/,"h");
+}
+function textoDia(periodos){
+  if (!periodos.length) return T[lang].fechado;
+  return periodos.map(function(p){ return formata(p[0])+" – "+formata(p[1]); }).join("  ·  ");
+}
+
+/* --- a hora é sempre a de Portugal continental, não a do visitante --- */
+var DIAS = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+function agoraEmLisboa(){
+  var partes = {};
+  new Intl.DateTimeFormat("en-GB",{
+    timeZone:"Europe/Lisbon", weekday:"short", year:"numeric",
+    month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit", hour12:false
+  }).formatToParts(new Date()).forEach(function(x){ partes[x.type] = x.value; });
+  var hora = (+partes.hour) % 24;
+  return {
+    dia:  DIAS[partes.weekday],
+    min:  hora*60 + (+partes.minute),
+    data: partes.year+"-"+partes.month+"-"+partes.day
+  };
+}
+
+/* --- feriados nacionais portugueses, incluindo os que dependem da Páscoa --- */
+function iso(d){
+  return d.getUTCFullYear()+"-"+
+         ("0"+(d.getUTCMonth()+1)).slice(-2)+"-"+
+         ("0"+d.getUTCDate()).slice(-2);
+}
+function maisDias(d, n){ return new Date(d.getTime() + n*86400000); }
+
+function domingoDePascoa(ano){
+  var a=ano%19, b=Math.floor(ano/100), c=ano%100,
+      d=Math.floor(b/4), e=b%4, f=Math.floor((b+8)/25),
+      g=Math.floor((b-f+1)/3), h=(19*a+b-d-g+15)%30,
+      i=Math.floor(c/4), k=c%4, l=(32+2*e+2*i-h-k)%7,
+      m=Math.floor((a+11*h+22*l)/451),
+      mes=Math.floor((h+l-7*m+114)/31), dia=((h+l-7*m+114)%31)+1;
+  return new Date(Date.UTC(ano, mes-1, dia));
+}
+
+var cacheFeriados = {};
+function feriadosDe(ano){
+  if (cacheFeriados[ano]) return cacheFeriados[ano];
+  var pascoa = domingoDePascoa(ano);
+  var lista = [
+    ano+"-01-01",  // Ano Novo
+    ano+"-04-25",  // Dia da Liberdade
+    ano+"-05-01",  // Dia do Trabalhador
+    ano+"-06-10",  // Dia de Portugal
+    ano+"-08-15",  // Assunção de Nossa Senhora
+    ano+"-08-20",  // Feriado municipal de Albufeira
+    ano+"-10-05",  // Implantação da República
+    ano+"-11-01",  // Todos os Santos
+    ano+"-12-01",  // Restauração da Independência
+    ano+"-12-08",  // Imaculada Conceição
+    ano+"-12-25",  // Natal
+    iso(maisDias(pascoa, -2)),  // Sexta-feira Santa
+    iso(pascoa),                // Domingo de Páscoa
+    iso(maisDias(pascoa, 60))   // Corpo de Deus
+  ];
+  cacheFeriados[ano] = lista;
+  return lista;
+}
+function eFeriado(dataISO){
+  return feriadosDe(+dataISO.slice(0,4)).indexOf(dataISO) !== -1;
+}
+
+/* --- o horário efetivo de um dia, já com exceções e feriados aplicados --- */
+function periodosDe(dataISO, diaSemana){
+  if (Object.prototype.hasOwnProperty.call(EXCECOES, dataISO)) return EXCECOES[dataISO];
+  if (FECHA_NOS_FERIADOS && eFeriado(dataISO)) return [];
+  return HORARIO[diaSemana].periodos;
+}
+
+function desenhaTabela(){
+  var corpo = document.getElementById("corpo-horario");
+  var hoje = agoraEmLisboa().dia;
+  var html = "";
+  for (var i=1; i<=7; i++){
+    var idx = i % 7, d = HORARIO[idx];
+    var nome = d[lang] + (idx === hoje ? T[lang].hoje : "");
+    html += '<tr class="'+(idx===hoje?"hoje":"")+'"><td>'+nome+'</td><td>'+textoDia(d.periodos)+'</td></tr>';
+  }
+  corpo.innerHTML = html;
+  var nota = document.getElementById("nota-feriados");
+  if (nota) nota.textContent = T[lang].notaFeriados;
+}
+
+function atualizaEstado(){
+  var agora = agoraEmLisboa();
+  var painel  = document.getElementById("painel");
+  var estado  = document.getElementById("estado");
+  var detalhe = document.getElementById("estado-detalhe");
+  var t = T[lang];
+
+  var hoje = periodosDe(agora.data, agora.dia);
+  for (var i=0; i<hoje.length; i++){
+    if (agora.min >= paraMinutos(hoje[i][0]) && agora.min < paraMinutos(hoje[i][1])){
+      painel.classList.add("aberta");
+      estado.textContent  = t.aberto;
+      detalhe.textContent = t.fechamos(formata(hoje[i][1]));
+      return;
+    }
+  }
+
+  painel.classList.remove("aberta");
+  estado.textContent = t.fechadoTit;
+  var prefixo = (FECHA_NOS_FERIADOS && eFeriado(agora.data)) ? t.feriado : "";
+
+  var base = new Date(agora.data + "T00:00:00Z");
+  for (var d=0; d<15; d++){
+    var data  = iso(maisDias(base, d));
+    var idx   = (agora.dia + d) % 7;
+    var lista = periodosDe(data, idx);
+    for (var j=0; j<lista.length; j++){
+      if (d > 0 || paraMinutos(lista[j][0]) > agora.min){
+        var h = formata(lista[j][0]);
+        if (d === 0)      detalhe.textContent = prefixo + t.reabre(h);
+        else if (d === 1) detalhe.textContent = prefixo + t.amanha(h);
+        else              detalhe.textContent = prefixo + t.outro(HORARIO[idx][lang], h);
+        return;
+      }
+    }
+  }
+  detalhe.textContent = prefixo;
+}
+
+/* --- troca de idioma --- */
+var traduziveis = document.querySelectorAll("[data-en]");
+traduziveis.forEach(function(el){ el.setAttribute("data-pt", el.innerHTML); });
+
+function mudaIdioma(novo){
+  lang = novo;
+  traduziveis.forEach(function(el){ el.innerHTML = el.getAttribute("data-" + novo); });
+  document.documentElement.lang = (novo === "pt") ? "pt-PT" : "en";
+  document.getElementById("btn-pt").setAttribute("aria-pressed", novo === "pt");
+  document.getElementById("btn-en").setAttribute("aria-pressed", novo === "en");
+  desenhaTabela();
+  atualizaEstado();
+  var a = document.getElementById("ano"), b = document.getElementById("ano-en");
+  if (a) a.textContent = new Date().getFullYear();
+  if (b) b.textContent = new Date().getFullYear();
+}
+
+document.getElementById("btn-pt").addEventListener("click", function(){ mudaIdioma("pt"); });
+document.getElementById("btn-en").addEventListener("click", function(){ mudaIdioma("en"); });
+
+/* Se o browser estiver em inglês, abre logo em inglês */
+if ((navigator.language || "").toLowerCase().indexOf("pt") !== 0) mudaIdioma("en");
+
+desenhaTabela();
+atualizaEstado();
+setInterval(atualizaEstado, 60000);
+document.getElementById("ano").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
