@@ -308,13 +308,13 @@ a{color:inherit}
       <div>
         <p class="eyebrow" data-en="Featured service">Serviço em destaque</p>
         <h3 data-en="PIM — Individualised Medication Preparation">PIM — Preparação Individualizada da Medicação</h3>
-        <p data-en="If you take a lot of tablets each day, or you care for someone who does, this service takes the weight off. We organise one or two weeks of medication into a sealed box with a compartment for each time of day. You open it, take what is inside, and that is it — no counting, no confusion, no missed doses.">Se toma muitos comprimidos por dia, ou se cuida de alguém que toma, este serviço tira-lhe o peso de cima. Organizamos a medicação de uma ou duas semanas numa caixa selada, com um compartimento para cada hora do dia. Abre, toma o que lá está, e pronto — sem contas, sem confusões, sem esquecimentos.</p>
+        <p data-en="If you take several tablets a day, or you care for someone who does, this service takes the weight off. Each dose is sealed in its own sachet, printed with the date, the time and the medicines it contains. You receive them in order: when the time comes, tear off the sachet, take what is inside, and that is it — no counting, no confusion, no missed doses.">Se toma vários comprimidos por dia, ou se cuida de alguém que toma, este serviço tira-lhe o peso de cima. Cada toma vai selada na sua própria saqueta, impressa com o dia, a hora e os medicamentos que contém. Recebe-as por ordem: chegada a hora, destaca a saqueta, toma o que lá está, e pronto — sem contas, sem confusões, sem esquecimentos.</p>
       </div>
       <ol class="passos">
         <li class="passo"><div><strong data-en="Bring us the prescriptions">Traga-nos as receitas</strong><span data-en="Bring your current prescriptions and a list of everything you take, including anything bought without a prescription.">Basta trazer as receitas atuais e a lista do que toma, incluindo o que comprou sem receita.</span></div></li>
-        <li class="passo"><div><strong data-en="The pharmacist reviews everything">O farmacêutico revê tudo</strong><span data-en="We check doses, timings and possible interactions. If anything is unclear, we speak to your doctor.">Confirmamos doses, horários e possíveis interações. Se houver alguma dúvida, falamos com o seu médico.</span></div></li>
-        <li class="passo"><div><strong data-en="We prepare and seal it">Preparamos e selamos</strong><span data-en="Each compartment is filled and checked twice before the box is sealed and labelled.">Cada compartimento é preenchido e conferido duas vezes antes de ser fechado e identificado.</span></div></li>
-        <li class="passo"><div><strong data-en="Collect it ready to take">Levanta pronta a tomar</strong><span data-en="We agree how often you collect it. If the medication changes in the meantime, we redo the box.">Combina connosco a periodicidade. Se a medicação mudar entretanto, refazemos a caixa.</span></div></li>
+        <li class="passo"><div><strong data-en="The pharmacist reviews everything">O farmacêutico revê tudo</strong><span data-en="We check the doses and the times of each dose against the prescription. If anything is unclear, we speak to your doctor.">Confirmamos as doses e os horários de cada toma face à prescrição. Se houver alguma dúvida, falamos com o seu médico.</span></div></li>
+        <li class="passo"><div><strong data-en="We prepare and seal the sachets">Preparamos e selamos as saquetas</strong><span data-en="The sachets are filled and sealed by an automated system, and checked before they are handed over.">As saquetas são preenchidas e seladas por um sistema automatizado, e conferidas antes de lhe serem entregues.</span></div></li>
+        <li class="passo"><div><strong data-en="Collect it ready to take">Levanta pronta a tomar</strong><span data-en="We agree how often you collect it. If the doctor changes anything in the meantime, we redo the sachets affected.">Combina connosco a periodicidade. Se o médico alterar alguma coisa entretanto, refazemos as saquetas em causa.</span></div></li>
       </ol>
     </div>
 
@@ -440,7 +440,7 @@ var HORARIO = [
   { pt:"Sábado",        en:"Saturday",  periodos: [["09:00","13:00"]] }
 ];
 
-/* Fechar automaticamente nos feriados nacionais? true = sim, false = não. */
+/* Fechar automaticamente nos feriados? true = sim, false = não. */
 var FECHA_NOS_FERIADOS = true;
 
 /* =========================================================================
@@ -464,14 +464,14 @@ var T = {
        reabre:function(h){return "Reabrimos hoje às "+h+".";},
        amanha:function(h){return "Abrimos amanhã às "+h+".";},
        outro:function(d,h){return "Abrimos "+d.toLowerCase()+" às "+h+".";},
-       notaFeriados:"Encerramos nos feriados nacionais." },
+       notaFeriados:"Encerramos nos feriados." },
   en:{ fechado:"Closed", hoje:" · today", aberto:"We are open", fechadoTit:"We are closed",
        feriado:"Today is a public holiday. ",
        fechamos:function(h){return "We close at "+h+".";},
        reabre:function(h){return "We reopen today at "+h+".";},
        amanha:function(h){return "We open tomorrow at "+h+".";},
        outro:function(d,h){return "We open on "+d+" at "+h+".";},
-       notaFeriados:"We are closed on Portuguese public holidays." }
+       notaFeriados:"We are closed on public holidays." }
 };
 
 function paraMinutos(h){ var p=h.split(":"); return (+p[0])*60+(+p[1]); }
